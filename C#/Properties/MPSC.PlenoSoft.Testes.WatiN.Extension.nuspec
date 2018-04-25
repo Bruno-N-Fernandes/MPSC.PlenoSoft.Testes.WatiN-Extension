@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="3.5.0">
+        <id>MPSC.PlenoSoft.Testes.WatiN.Extension</id>
+        <version>$version$</version>
+        <title>WatiN-Extension @ Mercado Pleno Soluções em Computação</title>
+        <authors>Bruno N. Fernandes</authors>
+        <owners>software@mercadopleno.com.br</owners>
+        <licenseUrl>http://www.mercadopleno.com.br</licenseUrl>
+        <projectUrl>https://github.com/Bruno-N-Fernandes/MPSC.PlenoSoft.Testes.WatiN-Extension</projectUrl>
+        <iconUrl>http://www.mercadopleno.com.br/imgs/MPSC.PlenoSoft.Office.PlenoExcel.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>WatiN-Extension é uma extensão para o WatiN muito simples de utilizar.
+			<![CDATA[
+using MPSC.PlenoSoft.Testes.WatiN.Extension.Controle;
+using WatiN.Core;
+using WatiN.Core.Exceptions;
+using WatiN.Core.Native.Windows;
+
+namespace MPSC.PlenoSoft.Testes.WatiN.Extension
+{
+	[TestClass]
+	public class Testando_WatiN
+	{
+		[TestMethod]
+		public void Exemplo_De_Como_Automatizar_Pesquisa_No_Google()
+		{
+			var browser = WatiNExtension.ObterNavegador<IE>();
+			browser.GoTo("https://www.google.com/search?q=WatiN");
+			var html = browser.Html;
+			Assert.IsNotNull(html);
+		}
+
+		[TestMethod]
+		public void Exemplo_De_Como_Automatizar_Pesquisa_De_CEP_Nos_Correios()
+		{
+			var navegador = new Navegador(TipoNavegador.InternetExplorer);
+			navegador.IrPara("http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuCep", 10, "CEP");
+			navegador.SetText("CEP", "20090000", true);
+			navegador.ClickButton("Buscar", true);
+			var html = navegador.GetHtml();
+			Assert.IsNotNull(html);
+		}
+	}
+}
+]]>
+		</description>
+        <summary>WatiN-Extension é uma extensão para o WatiN muito simples de utilizar.</summary>
+        <releaseNotes>
+			(Atual)
+			2018/04/25 - 1.0.0.7 -> Versão Inicial da extensão para o WatiN;
+		</releaseNotes>
+        <copyright>Mercado Pleno Soluções em Computação</copyright>
+        <language>pt-BR</language>
+        <tags>Teste Inteface WatiN Bot Automação Pleno Soft</tags>
+        <dependencies>
+            <dependency id="WatiN" version="2.1.0" />
+        </dependencies>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System" targetFramework="" />
+		</frameworkAssemblies>
+	</metadata>
+	<files>
+		<file src="..\..\Bin\MPSC.PlenoSoft.Testes.WatiN.Extension.dll" target="lib\net\" />
+	</files>
+</package>

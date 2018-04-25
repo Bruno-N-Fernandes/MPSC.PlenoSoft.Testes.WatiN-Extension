@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/C#/obj/Debug
+*.suo
+/Bin
+/packages/WatiN.2.1.0
