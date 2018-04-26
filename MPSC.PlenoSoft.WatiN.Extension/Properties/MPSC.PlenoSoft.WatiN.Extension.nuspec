@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
     <metadata minClientVersion="3.5.0">
-        <id>MPSC.PlenoSoft.Testes.WatiN.Extension</id>
+        <id>MPSC.PlenoSoft.WatiN.Extension</id>
         <version>$version$</version>
-        <title>WatiN-Extension @ Mercado Pleno Soluções em Computação</title>
+        <title>WatiN Extension @ Mercado Pleno Soluções em Computação</title>
         <authors>Bruno N. Fernandes</authors>
         <owners>software@mercadopleno.com.br</owners>
         <licenseUrl>http://www.mercadopleno.com.br</licenseUrl>
-        <projectUrl>https://github.com/Bruno-N-Fernandes/MPSC.PlenoSoft.Testes.WatiN-Extension</projectUrl>
+        <projectUrl>https://github.com/Bruno-N-Fernandes/MPSC.PlenoSoft.WatiN-Extension</projectUrl>
         <iconUrl>http://www.mercadopleno.com.br/imgs/MPSC.PlenoSoft.Office.PlenoExcel.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>WatiN-Extension é uma extensão para o WatiN muito simples de utilizar.
+        <description>WatiN Extension é uma extensão para o WatiN muito simples de utilizar.
 			<![CDATA[
-using MPSC.PlenoSoft.Testes.WatiN.Extension.Controle;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPSC.PlenoSoft.WatiN.Extension.Util;
 using WatiN.Core;
-using WatiN.Core.Exceptions;
-using WatiN.Core.Native.Windows;
 
-namespace MPSC.PlenoSoft.Testes.WatiN.Extension
+namespace MPSC.PlenoSoft.WatiN.Extension.Testes.Unidade
 {
 	[TestClass]
 	public class Testando_WatiN
@@ -34,11 +34,12 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension
 		[TestMethod]
 		public void Exemplo_De_Como_Automatizar_Pesquisa_De_CEP_Nos_Correios()
 		{
-			var navegador = new Navegador(TipoNavegador.InternetExplorer);
-			navegador.IrPara("http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuCep", 10, "CEP");
-			navegador.SetText("CEP", "20090000", true);
-			navegador.ClickButton("Buscar", true);
+			var navegador = Navegador.New(TipoNavegador.InternetExplorer);
+			navegador.IrPara("http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuCep", TimeSpan.FromSeconds(10), "CEP");
+			navegador.SetText("relaxation", "20090000", false);
+			navegador.ClickButton("Buscar", true, true);
 			var html = navegador.GetHtml();
+			navegador.Fechar();
 			Assert.IsNotNull(html);
 		}
 	}
@@ -48,7 +49,7 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension
         <summary>WatiN-Extension é uma extensão para o WatiN muito simples de utilizar.</summary>
         <releaseNotes>
 			(Atual)
-			2018/04/25 - 1.0.0.7 -> Versão Inicial da extensão para o WatiN;
+			2018/04/26 - 1.0.0.8 -> Versão Inicial da extensão para o WatiN;
 		</releaseNotes>
         <copyright>Mercado Pleno Soluções em Computação</copyright>
         <language>pt-BR</language>
@@ -61,6 +62,6 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension
 		</frameworkAssemblies>
 	</metadata>
 	<files>
-		<file src="..\..\Bin\MPSC.PlenoSoft.Testes.WatiN.Extension.dll" target="lib\net\" />
+		<file src="..\..\Bin\MPSC.PlenoSoft.WatiN.Extension.dll" target="lib\net\" />
 	</files>
 </package>

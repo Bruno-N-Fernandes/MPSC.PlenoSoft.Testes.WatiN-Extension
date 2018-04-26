@@ -8,8 +8,8 @@
     <ProjectGuid>{FAC1375E-239A-4A7B-A040-475AA4031E25}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MPSC.PlenoSoft.Testes.WatiN.Extension</RootNamespace>
-    <AssemblyName>MPSC.PlenoSoft.Testes.WatiN.Extension</AssemblyName>
+    <RootNamespace>MPSC.PlenoSoft.WatiN.Extension</RootNamespace>
+    <AssemblyName>MPSC.PlenoSoft.WatiN.Extension</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -35,13 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\MPSC.PlenoSoft.Testes.WatiN.Extension.nuspec" />
+    <None Include="Properties\MPSC.PlenoSoft.WatiN.Extension.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
       <HintPath>..\packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
       <Private>True</Private>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -54,13 +54,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controle\INavegador.cs" />
-    <Compile Include="Controle\Navegador.cs" />
-    <Compile Include="Controle\NavegadorFactory.cs" />
-    <Compile Include="Controle\TimeOut.cs" />
-    <Compile Include="Controle\WatiNExtension.cs" />
+    <Compile Include="Controle\GetSet.cs" />
+    <Compile Include="Controle\InputButton.cs" />
+    <Compile Include="Controle\InputLink.cs" />
+    <Compile Include="Controle\InputSelect.cs" />
+    <Compile Include="Controle\InputText.cs" />
+    <Compile Include="Navegador.cs" />
+    <Compile Include="Util\TimeOut.cs" />
+    <Compile Include="Util\WatiNExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\UtilExtension.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

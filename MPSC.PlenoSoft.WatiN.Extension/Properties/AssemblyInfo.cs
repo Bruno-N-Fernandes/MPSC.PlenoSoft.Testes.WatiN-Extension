@@ -12,19 +12,19 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 
-[assembly: AssemblyTitle("WatiN-Extension @ Mercado Pleno Soluções em Computação")]
+[assembly: AssemblyTitle("WatiN Extension @ Mercado Pleno Soluções em Computação")]
 [assembly: AssemblyDescription("Extensão para o Pacote WatiN com funções que facilitam a escrita de testes de interface e geração de Bots")]
 [assembly: AssemblyCompany("Mercado Pleno Soluções em Computação")]
-[assembly: AssemblyProduct("MPSC.PlenoSoft.Testes.WatiN.Extension.dll")]
+[assembly: AssemblyProduct("MPSC.PlenoSoft.WatiN.Extension.dll")]
 [assembly: AssemblyCopyright("Copyright © Mercado Pleno 2018")]
 [assembly: AssemblyTrademark("software@mercadopleno.com.br ™")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("73c19cbc-eba5-4674-8b5d-b8b08ea49499")]
 
-[assembly: AssemblyVersion("1.0.0.7")]
-[assembly: AssemblyFileVersion("17.02.44.260")]
-[assembly: AssemblyInformationalVersion("1.0.2018.0425")]
+[assembly: AssemblyVersion("1.0.0.8")]
+[assembly: AssemblyFileVersion("02.17.34.568")]
+[assembly: AssemblyInformationalVersion("1.0.2018.0426")]
 
 
 public class VersaoDoAssembly

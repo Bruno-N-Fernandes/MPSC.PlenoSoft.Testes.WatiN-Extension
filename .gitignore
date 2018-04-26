@@ -6,3 +6,8 @@
 *.suo
 /Bin
 /packages/WatiN.2.1.0
+/.vs
+/MPSC.PlenoSoft.WatiN.Extension/obj
+/MPSC.PlenoSoft.WatiN.Extension.Testes.Unidade/bin/Debug
+/MPSC.PlenoSoft.WatiN.Extension.Testes.Unidade/obj/Debug
+/packages

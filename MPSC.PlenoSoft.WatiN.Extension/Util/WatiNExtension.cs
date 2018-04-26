@@ -6,11 +6,30 @@ using WatiN.Core;
 using WatiN.Core.Exceptions;
 using WatiN.Core.Native.Windows;
 
-namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
+namespace MPSC.PlenoSoft.WatiN.Extension.Util
 {
+	public enum TipoNavegador
+	{
+		InternetExplorer = 0,
+		FireFox = 1,
+	}
+
 	public static class WatiNExtension
 	{
-		private static readonly ITimeOut tempoDecorrido = new TimeOut();
+		private static readonly TimeOut tempoDecorrido = new TimeOut();
+
+		public static Browser ObterNavegador(TipoNavegador tipoNavegador)
+		{
+			switch (tipoNavegador)
+			{
+				case TipoNavegador.InternetExplorer:
+					return ObterNavegador<IE>();
+				case TipoNavegador.FireFox:
+					return ObterNavegador<FireFox>();
+				default:
+					return ObterNavegador<IE>();
+			}
+		}
 
 		public static Browser ObterNavegador<TBrowser>() where TBrowser : Browser, new()
 		{
@@ -57,7 +76,10 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 		public static Boolean ContainsAnyText(this Document document, params String[] textos)
 		{
 			Wait();
-			return containsTextImpl(document, false, textos);
+			return containsTextImpl(document, false, textos)
+				|| containsTextImpl(document, false, textos.ToUpper())
+				|| containsTextImpl(document, false, textos.ToLower())
+			;
 		}
 
 		public static Boolean WaitContainsAllText(this Document document, Int32 segundos, params String[] textos)
@@ -70,11 +92,10 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 			return waitContainsTextImpl(document, segundos, false, textos);
 		}
 
-		public static void Wait(Decimal seconds = 0.1M)
+		public static void Wait(TimeSpan? timeOut = null)
 		{
-			var tempo = seconds * 1000M;
 			tempoDecorrido.ReIniciar();
-			while (tempoDecorrido.MenorQue(tempo).MiliSegundos)
+			while (tempoDecorrido.MenorQue(timeOut))
 				Thread.Sleep(50);
 		}
 
@@ -89,7 +110,7 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 			var erro = true;
 
 			tempoDecorrido.ReIniciar();
-			while (erro && (element != null) && tempoDecorrido.MenorQue(5).Segundos)
+			while (erro && (element != null) && tempoDecorrido.MenorQue(TimeOut.CincoSegundos))
 			{
 				try
 				{
@@ -124,7 +145,7 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 			var erro = true;
 
 			tempoDecorrido.ReIniciar();
-			while (erro && (element != null) && tempoDecorrido.MenorQue(5).Segundos)
+			while (erro && (element != null) && tempoDecorrido.MenorQue(TimeOut.CincoSegundos))
 			{
 				try
 				{
@@ -156,7 +177,7 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 			var erro = true;
 
 			tempoDecorrido.ReIniciar();
-			while (erro && (element != null) && tempoDecorrido.MenorQue(5).Segundos)
+			while (erro && (element != null) && tempoDecorrido.MenorQue(TimeOut.CincoSegundos))
 			{
 				try
 				{
@@ -193,7 +214,7 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 			var erro = true;
 
 			tempoDecorrido.ReIniciar();
-			while (erro && (element != null) && tempoDecorrido.MenorQue(5).Segundos)
+			while (erro && (element != null) && tempoDecorrido.MenorQue(TimeOut.CincoSegundos))
 			{
 				try
 				{
@@ -217,8 +238,6 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 
 			return achou;
 		}
-
-
 
 		public static Link Select(this Link element, Boolean click, Boolean forceChange)
 		{
@@ -264,9 +283,9 @@ namespace MPSC.PlenoSoft.Testes.WatiN.Extension.Controle
 
 						if (click)
 						{
-							if (forceChange) element.MouseDown();
+							if (forceChange && element.Exists) element.MouseDown();
 							element.Click();
-							if (forceChange) element.MouseUp();
+							if (forceChange && element.Exists) element.MouseUp();
 						}
 					}
 				}
