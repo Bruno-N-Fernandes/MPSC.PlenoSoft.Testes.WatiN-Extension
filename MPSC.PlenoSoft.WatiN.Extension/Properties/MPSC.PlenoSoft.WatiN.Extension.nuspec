@@ -49,11 +49,13 @@ namespace MPSC.PlenoSoft.WatiN.Extension.Testes.Unidade
         <summary>WatiN-Extension é uma extensão para o WatiN muito simples de utilizar.</summary>
         <releaseNotes>
 			(Atual)
-			2018/04/26 - 1.0.0.8 -> Versão Inicial da extensão para o WatiN;
+			2018/04/26 - 1.0.0.10 -> Correção do NuSpec e Versionamento;
+			2018/04/26 - 1.0.0.9 -> Reestruturação do Código fonte, Ajuste de Namespaces e remoção de classes e interfaces desnecessárias. Escrita de testes de unidade;
+			2018/04/25 - 1.0.0.8 -> Versão Inicial da extensão para o WatiN;
 		</releaseNotes>
         <copyright>Mercado Pleno Soluções em Computação</copyright>
         <language>pt-BR</language>
-        <tags>Teste Inteface WatiN Bot Automação Pleno Soft</tags>
+        <tags>Teste Inteface WatiN Web Application Test .Net Bot Automação Pleno Soft Browser Navegador Site</tags>
         <dependencies>
             <dependency id="WatiN" version="2.1.0" />
         </dependencies>
