@@ -7,10 +7,10 @@
         <authors>Bruno N. Fernandes</authors>
         <owners>software@mercadopleno.com.br</owners>
         <licenseUrl>http://www.mercadopleno.com.br</licenseUrl>
-        <projectUrl>https://github.com/Bruno-N-Fernandes/MPSC.PlenoSoft.WatiN-Extension</projectUrl>
-        <iconUrl>http://www.mercadopleno.com.br/imgs/MPSC.PlenoSoft.Office.PlenoExcel.png</iconUrl>
+        <projectUrl>https://github.com/Bruno-N-Fernandes/MPSC.PlenoSoft.WatiN.Extension</projectUrl>
+        <iconUrl>http://www.mercadopleno.com.br/imgs/MPSC.PlenoSoft.WatiN.Extension.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>WatiN Extension é uma extensão para o WatiN muito simples de utilizar.
+        <description>WatiN Extension é uma extensão para o WatiN (Web Application Testing In .Net)
 			<![CDATA[
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
